@@ -25,7 +25,7 @@
     b = "!. ~/.githelpers && pretty_git_branch"
     bs = "!. ~/.githelpers && pretty_git_branch_sorted"
 [core]
-    excludesFile = /Users/matthewdiamant/.gitignore_global
+	excludesfile = /Users/mattdiamant/.gitignore_global
 [user]
 	name = Matt Diamant
 	email = matt.diamant@dictionary.com

@@ -1,14 +1,12 @@
-# bash prompt
-export PS1="\[$(tput bold)\]\[\033[38;5;10m\]\W \\$\[$(tput sgr0)\] "
+# Oh My Zsh
+export ZSH="/Users/mattdiamant/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+ENABLE_CORRECTION="true"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
 
 # dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
-# Bash completion
-. ~/git-completion.bash
-
-# Misc aliases
-alias chrome='open -a "Google Chrome"'
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin
@@ -17,18 +15,6 @@ export GOPATH=$HOME/Projects/go
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# startup
-alias startup='sudo pfctl -d ; sudo pfctl -e -f /etc/pf.conf'
-
-# fast dir cd
-alias tcom-serp='cd ~/Projects/tcom-serp'
-
-# DCOM dev
-export PATH=$PATH:~/Projects/dev
-
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # Screen reattach
 alias sr='screen -r'
@@ -36,6 +22,7 @@ alias sr='screen -r'
 # Haskell
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
+# Huxley kubectl aws things
 aws-sd(){
     AWS_PROFILE=sd
     AWS_ROLE=arn:aws:iam::281059476650:role/Developers

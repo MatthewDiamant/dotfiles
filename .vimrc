@@ -3,6 +3,16 @@ execute pathogen#infect()
 " Most of this is ripped of from Gary Bernhardt's .vimrc file
 
 set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+
 " allow unsaved background buffers and remember marks/undo for them
 set hidden
 " remember more commands and search history
@@ -90,6 +100,8 @@ set signcolumn=yes
 "   menu: use a popup menu
 "   preview: show more info in menu
 :set completeopt=menu,preview
+" Redraw time is a problem with some plugins, increasing it.
+:set redrawtime=10000
 
 " forbid arrow movements
 map <Left> :echo "no!"<cr>
@@ -101,7 +113,7 @@ map <Down> :echo "no!"<cr>
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set t_Co=256 " 256 colors
-:color onedark
+:color miramare
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
@@ -159,7 +171,7 @@ command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 
 " bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>:resize 20<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trim whitespace on save
